@@ -1,24 +1,21 @@
 package io.ibj.onevone.server;
 
 /**
- * Represents the state of a game server.
+ * Represents the state of a server.
  */
 public enum  ServerState {
     /**
-     * Represents a Server that has either timed out, or a server controller that had a planned shutdown.
+     * Represents a Server that has not sent its heartbeat to this server in beatPeriod*2 time.
      */
-    OFFLINE,
+    OFFLINE_TIMEOUT,
     /**
-     * Represents a server that is initiating a match, but hasn't started running yet.
+     * Represents a server that has sent its listeners a shutdown signal, and is offline
      */
-    INITIATION,
+    OFFLINE_SHUTDOWN,
     /**
-     * Represents a server that is currently running a match.
+     * Represents the state of a server that is offline and who's heartbeat is healthy.
      */
-    RUNNING,
-    /**
-     * Represents a server that does not currently have a match.
-     */
-    FREE
+    ONLINE
+
 
 }

@@ -14,7 +14,7 @@ import io.ibj.onevone.persistance.player.inv.PvpInventoryStore;
 import io.ibj.onevone.persistance.player.inv.cassandra.DCPvpInventoryStore;
 import io.ibj.onevone.persistance.team.DTeamStore;
 import io.ibj.onevone.persistance.team.cassandra.DCTeamStore;
-import io.ibj.onevone.server.ServerControllerPool;
+import io.ibj.onevone.server.ServerPool;
 import lombok.Getter;
 
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class OvO extends JoePlugin {
 
     @Getter private DTeamStore teamStore;
 
-    @Getter private ServerControllerPool serverPool;
+    @Getter private ServerPool serverPool;
 
     private Cluster cluster;
 

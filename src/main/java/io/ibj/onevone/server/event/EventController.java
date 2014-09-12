@@ -18,4 +18,9 @@ public interface EventController {
      */
     public void call(NetworkEvent event);
 
+    /**
+     * Called in the end of life for this event controller. Severs all possible network ties, and removes all event handlers.
+     */
+    public void cleanup();
+
 }

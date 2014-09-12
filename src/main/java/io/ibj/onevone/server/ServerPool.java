@@ -7,23 +7,18 @@ import java.util.Set;
 /**
  * Represents a collection of server controllers.
  */
-public interface ServerPool extends Iterable<ServerController>, Eventable {
+public interface ServerPool extends Iterable<Server>, Eventable {
 
     /**
-     * Returns all server controllers inside of this server controller pool
+     * Returns all servers within the ServerPool
      * @return  Set of all server controllers
-     */
-    public Set<ServerController> getServerControllers();
-
-    /**
-     * Returns all servers hosted by all of the server controllers managed by this instance
-     * @return  Set of all servers
      */
     public Set<Server> getServers();
 
     /**
-     * Starts up a new server controller into this pool, if possible. Should throw an exception if starting a new controller is not possible
-     * @return  Created controller
+     * Invokes a new process on a spare server. If a server has not been found, one is started, and this process WILL BLOCK UNTIL THE SERVER IS FOUND
+     * @param definition Definition of the process to start on the remote server.
+     * @return  Process created
      */
-    public ServerController startNewController();
+    public Process runProcess(ProcessDefinition definition);
 }

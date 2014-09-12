@@ -3,6 +3,8 @@ package io.ibj.onevone.server;
 import io.ibj.onevone.persistance.DEntity;
 import io.ibj.onevone.server.event.Eventable;
 
+import java.net.InetSocketAddress;
+
 /**
  * Represents a server that hosts one match and map at a time.
  */
@@ -21,26 +23,14 @@ public interface Server extends DEntity, Eventable {
     public io.ibj.onevone.server.Process getProcess();
 
     /**
-     * Forcibly kill a running match
+     * Kills the process that is currently running and stops the server.
      */
-    public void stopProcess();
+    public void kill();
 
     /**
-     * Forcibly halts the server. Will immediately kill whatever game the server is running, if one is running
+     * Returns the InetSocketAddress for this server
+     * @return
      */
-    public void forceHalt();
-
-    /**
-     * Schedules a server halt. This will halt the server as soon as the current match is over.
-     */
-    public void halt();
-
-
-    /**
-     * Creates a new process from the passed invoker. If the process is created on a remote machine,
-     * @param invoker   Invoker to model process from.
-     * @return  Process that was created.
-     */
-    public Process createNewProcess(ProcessInvoker invoker);
+    public InetSocketAddress getAddress();
 
 }

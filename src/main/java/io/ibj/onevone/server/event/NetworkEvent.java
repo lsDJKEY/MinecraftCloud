@@ -13,4 +13,10 @@ public interface NetworkEvent {
      */
     public UUID getId();
 
+    /**
+     * Represents the sending server. To prevent double calls
+     * @return  UUID of the sending server
+     */
+    public UUID getSender();
+
 }
